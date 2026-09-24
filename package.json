@@ -1,0 +1,26 @@
+{
+  "name": "vbldle",
+  "version": "1.0.0",
+  "description": "A daily and infinite volleyball roster guessing game.",
+  "private": true,
+  "scripts": {
+    "check:js": "node --check public/app.js",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run check:js && npm run format:check",
+    "serve": "firebase emulators:start --only hosting",
+    "deploy": "npm run check && firebase deploy --only hosting",
+    "test": "npm run check"
+  },
+  "keywords": [
+    "firebase",
+    "hosting",
+    "game",
+    "volleyball"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}

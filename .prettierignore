@@ -1,0 +1,4 @@
+.git/
+.firebase/
+firebase-debug.log
+public/assets/

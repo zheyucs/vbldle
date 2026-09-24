@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vbldle</title>
+    <link
+      id="site-favicon"
+      rel="icon"
+      type="image/png"
+      href="./dailyicon.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="mode-switch" aria-label="Game mode">
+      <button id="daily-mode" class="mode-button" type="button">Daily</button>
+      <button id="infinite-mode" class="mode-button" type="button">
+        Infinite
+      </button>
+    </nav>
+    <main class="game-box">
+      <p id="mode-kicker" class="mode-kicker">DAILY MODE</p>
+      <h1>
+        <img
+          id="site-icon"
+          class="site-icon"
+          src="./dailyicon.png"
+          alt=""
+        /><span>vbldle</span>
+      </h1>
+      <p id="mode-description" class="subtitle">Resetted daily.</p>
+      <p id="mode-date" class="mode-date"></p>
+
+      <form id="guess-form" class="guess-form" autocomplete="off">
+        <input
+          id="guess-input"
+          type="text"
+          placeholder="Search style..."
+          aria-label="Search style"
+          spellcheck="false"
+        />
+        <button type="submit">Guess</button>
+      </form>
+      <div class="suggestions" id="suggestions"></div>
+
+      <div class="game-meta">
+        <span id="game-status">Choose a style to begin.</span>
+        <span id="guess-count">0 / 6</span>
+      </div>
+
+      <button id="reset-game" class="reset-button" type="button" hidden>
+        Reset game
+      </button>
+
+      <div class="table-wrap">
+        <table id="guess-board">
+          <thead>
+            <tr>
+              <th class="guess-number-header">#</th>
+              <th>Style Name</th>
+              <th>Rarity</th>
+              <th>Status</th>
+              <th>Released</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+    <dialog id="round-report" class="round-report">
+      <button
+        id="close-report"
+        class="close-report"
+        type="button"
+        aria-label="Close result"
+      >
+        &times;
+      </button>
+      <p class="report-kicker">ROUND COMPLETE</p>
+      <h2 id="report-title">Result</h2>
+      <img id="report-icon" class="report-icon" alt="Round result" />
+      <p id="report-copy"></p>
+    </dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
