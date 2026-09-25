@@ -430,10 +430,12 @@ function storageKey() {
   return `${storagePrefix}-${mode}`;
 }
 
+function currentDay() {
+  return new Date().toISOString().slice(0, 10);
+}
+
 function dailySeed() {
-  return new Date()
-    .toISOString()
-    .slice(0, 10)
+  return currentDay()
     .split("-")
     .reduce((sum, part) => sum * 31 + Number(part), 17);
 }
@@ -484,6 +486,7 @@ function saveGame() {
   localStorage.setItem(
     storageKey(),
     JSON.stringify({
+      day: currentDay(),
       targetStyle,
       targetName: target.name,
       guesses: state.guesses.map((guess) => guess.name),
@@ -509,7 +512,8 @@ function loadGame() {
     if (
       !savedTarget ||
       !styles.includes(saved.targetStyle) ||
-      !Array.isArray(saved.guesses)
+      !Array.isArray(saved.guesses) ||
+      (mode === "daily" && saved.day !== currentDay())
     ) {
       setNewGame();
       return;
